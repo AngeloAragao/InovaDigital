@@ -8,8 +8,9 @@ class Pedido {
     var quantidadePedido = ""
     var entregaPedido = ""
     var valorPedido = ""
+    var statusPedido = ""
     override fun toString(): String {
-        return "Pedido(nomeCliente='$nomeCliente', tipoServico='$tipoServico', descricaoPedido='$descricaoPedido', quantidadePedido='$quantidadePedido', entregaPedido='$entregaPedido', valorPedido='$valorPedido')"
+        return "Pedido(nomeCliente='$nomeCliente', tipoServico='$tipoServico', descricaoPedido='$descricaoPedido', quantidadePedido='$quantidadePedido', entregaPedido='$entregaPedido', valorPedido='$valorPedido', statusPedido='$statusPedido')"
     }
 
 

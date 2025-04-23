@@ -21,11 +21,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         val buttonAbrirCadastroPedido = findViewById<Button>(R.id.button_abrir_cadastro_pedido)
+        val buttonAbrirLogin = findViewById<Button>(R.id.button_login)
 
         buttonAbrirCadastroPedido.setOnClickListener {
             System.out.println("Pedido.toString")
             val abrirCadastroPedido = Intent(this, CadastroPedidoActivity::class.java)
+
             startActivity(abrirCadastroPedido)
+
+        }
+
+        buttonAbrirLogin.setOnClickListener {
+            val abrirLogin = Intent(this, Login::class.java)
+            startActivity(abrirLogin)
         }
     }
 }

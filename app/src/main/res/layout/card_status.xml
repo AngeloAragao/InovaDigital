@@ -1,0 +1,53 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:backgroundTint="@android:color/white">
+
+    <!-- Layout interno para o card -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="16dp">
+
+<!-- LinearLayout para a bolinha e o status -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="start|center_vertical">
+
+    <!-- Bolinha colorida -->
+    <View
+        android:id="@+id/statusCircle"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/circle_color"/>
+
+    <!-- Título do status -->
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+</LinearLayout>
+
+<!-- Quantidade de pedidos -->
+<TextView
+    android:id="@+id/textQuantidade"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Quantidade"
+    android:textSize="14sp"
+    android:layout_marginTop="8dp"/>
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+

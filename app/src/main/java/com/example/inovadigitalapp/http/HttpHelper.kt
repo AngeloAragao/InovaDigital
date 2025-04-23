@@ -9,10 +9,24 @@ import okhttp3.RequestBody
 
 class HttpHelper {
 
+    private val client = OkHttpClient()
+
+    fun getPedidos(): String? {
+        val url = "http://192.168.0.191:8080/inovadigital/pedidos"
+
+        val request = Request.Builder()
+            .url(url)
+            .get()
+            .build()
+
+        val response = client.newCall(request).execute()
+        return response.body?.string() // pega o corpo da resposta como string
+    }
+
     fun post (json: String) : String? {
 
         // Definir URL do servidor
-        val URL = "http://192.168.0.18:8080/inovadigital/pedidos"
+        val URL = "http://192.168.0.191:8080/inovadigital/pedidos"
 
         // Definir o cabeçalho
         val headerHttp = "application/json; charset=utf-8".toMediaTypeOrNull()

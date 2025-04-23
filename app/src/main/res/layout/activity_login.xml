@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:background="@color/white"
+android:layout_height="match_parent"
+tools:context=".Login">
+
+
+<TextView
+    android:id="@+id/titulocadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:textColor="@color/blue_forte"
+    android:text="Login"
+    android:textSize="30sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="60dp"
+    android:textStyle="bold"
+    android:layout_marginBottom="600dp"/>
+
+
+<TextView
+    android:id="@+id/subtitulo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/black"
+    android:text="Seja bem vindo!"
+    android:textSize="18sp"
+    app:layout_constraintTop_toBottomOf="@+id/titulocadastro"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+
+<EditText
+    android:id="@+id/edit_email"
+    style="@style/edit_Text"
+    android:hint="Email"
+    android:inputType="textEmailAddress"
+    app:layout_constraintTop_toTopOf="@id/subtitulo"
+    android:layout_marginTop="90dp"/>
+
+
+<EditText
+    android:id="@+id/edit_senha"
+    style="@style/edit_Text"
+    android:hint="Senha"
+    android:inputType="numberPassword"
+    app:layout_constraintTop_toBottomOf="@id/edit_email"
+    android:layout_marginTop="30dp"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Esqueceu a senha?"
+    android:textSize="15sp"
+    android:textStyle="normal"
+    app:layout_constraintTop_toBottomOf="@+id/edit_senha"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginRight="40dp"
+    android:layout_marginTop="20dp"
+    />
+
+
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/entrar"
+    style="@style/btn_grande"
+    android:text="Entrar"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:textSize="19sp"
+    app:layout_constraintTop_toBottomOf="@+id/edit_senha"
+    android:layout_marginTop="60dp" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Crie uma nova conta"
+    app:layout_constraintTop_toBottomOf="@+id/btn_entrar"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:textSize="18dp"
+    android:layout_marginTop="60dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

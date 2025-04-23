@@ -2,8 +2,10 @@ package com.example.inovadigitalapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,8 +42,17 @@ class CadastroPedidoActivity : AppCompatActivity() {
         val editTextEntregaPedido = findViewById<EditText>(R.id.edit_text_entrega_pedido)
         val editTextValorPedido = findViewById<EditText>(R.id.edit_text_valor_pedido)
 
+        val editTextStatusPedido: Spinner = findViewById(R.id.edit_spinner_status_pedido)
+
+        // Lista de opções
+        val opcoes = listOf("Recebido", "Produzindo", "Atrasado", "Finalizado")
+
+        // Adapter para conectar os dados ao Spinner
+        editTextStatusPedido.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opcoes)
+
+
         buttonGravar.setOnClickListener {
-            // Criar um objeto Dentista
+            // Criar um objeto Pedido
             val pedido = Pedido()
             pedido.nomeCliente = editTextNomeCliente.text.toString()
             pedido.tipoServico = editTextTipoServico.text.toString()
@@ -49,8 +60,11 @@ class CadastroPedidoActivity : AppCompatActivity() {
             pedido.quantidadePedido = editTextQuantidadePedido.text.toString()
             pedido.entregaPedido = editTextEntregaPedido.text.toString()
             pedido.valorPedido = editTextValorPedido.text.toString()
+            pedido.statusPedido = editTextStatusPedido.selectedItem.toString()
 
-            // Converter o dentista em texto
+
+
+            // Converter o pedido em texto
             val gson = Gson()
             val pedidoJson = gson.toJson(pedido)
 
@@ -68,6 +82,9 @@ class CadastroPedidoActivity : AppCompatActivity() {
 
                     // Exemplo: Mostrando o resultado em um Toast após a operação
                     Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT).show()
+
+                    val abrirDash = Intent(applicationContext, DashboardPedidos::class.java)
+                    startActivity(abrirDash)
 
                 } catch (e: Exception) {
                     // Se algo der errado, trate o erro
