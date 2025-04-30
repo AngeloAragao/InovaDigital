@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue_forte">#1F41BB</color>
+    <color name="cinza">#F6FAFA</color>
+    <color name="cinza1">#D3D0D0</color>
+    <color name="cinza2">#BFBABA</color>
 </resources>

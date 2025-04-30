@@ -2,4 +2,5 @@
     <string name="app_name">InovaDigitalApp</string>
     <string name="activity_cadastro_pedido" />
     <string name="title_activity_cadastro_pedido" />
+    <string name="cadastrar"/>
 </resources>

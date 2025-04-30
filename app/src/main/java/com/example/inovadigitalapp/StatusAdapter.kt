@@ -28,10 +28,10 @@ class StatusAdapter(private var lista: List<Pair<String, Int>>) :
         holder.quantidadeText.text = "Quantidade: $quantidade"
 
         val color = when (status) {
-            "Recebido" -> Color.GREEN
+            "Recebido" -> Color.BLUE
             "Em andamento" -> Color.YELLOW
             "Atrasado" -> Color.RED
-            "Finalizado" -> Color.BLUE
+            "Finalizado" -> Color.GREEN
             else -> Color.GRAY
         }
         holder.statusCircle.setBackgroundColor(color)

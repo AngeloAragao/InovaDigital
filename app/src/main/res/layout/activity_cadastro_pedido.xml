@@ -10,8 +10,10 @@
     android:layout_margin="24dp">
 
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blue_forte"
         android:text="Cadastro Pedido"
         android:layout_gravity="center_horizontal"
         android:textSize="24dp"
@@ -61,8 +63,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:spinnerMode="dropdown" />
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_gravar"
+        style="@style/btn_grande"
+        android:textColor="@color/white"
         android:text="Gravar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

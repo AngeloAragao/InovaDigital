@@ -24,8 +24,8 @@ class Login : AppCompatActivity() {
         }
 
         // 👇 Aqui está o local certo
-        val usuarioEditText = findViewById<EditText>(R.id.usuario)
-        val senhaEditText = findViewById<EditText>(R.id.senha)
+        val usuarioEditText = findViewById<EditText>(R.id.edit_email)
+        val senhaEditText = findViewById<EditText>(R.id.edit_senha)
         val botaoEntrar = findViewById<Button>(R.id.entrar)
 
         botaoEntrar.setOnClickListener {
