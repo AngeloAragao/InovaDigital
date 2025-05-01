@@ -19,7 +19,7 @@ class DashboardPedidos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard_pedidos)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerCards)
+        val recyclerView = findViewById<RecyclerView>(R.id.main)
         adapter = StatusAdapter(emptyList()) // Cria com lista vazia
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter

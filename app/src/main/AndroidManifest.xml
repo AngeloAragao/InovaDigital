@@ -16,7 +16,7 @@
         android:theme="@style/Theme.InovaDigitalApp"
         tools:targetApi="31">
 
-        <!-- REMOVIDO: entrada duplicada de TelaCadastro -->
+
         <activity
             android:name=".TelaCadastro"
             android:exported="true" />

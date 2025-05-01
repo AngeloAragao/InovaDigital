@@ -34,6 +34,8 @@ class CadastroPedidoActivity : AppCompatActivity() {
             insets
         }
 
+
+
         val buttonGravar = findViewById<Button>(R.id.button_gravar)
         val editTextNomeCliente = findViewById<EditText>(R.id.edit_text_nome_cliente)
         val editTextTipoServico = findViewById<EditText>(R.id.edit_text_tipo_servico)
@@ -61,6 +63,10 @@ class CadastroPedidoActivity : AppCompatActivity() {
             pedido.entregaPedido = editTextEntregaPedido.text.toString()
             pedido.valorPedido = editTextValorPedido.text.toString()
             pedido.statusPedido = editTextStatusPedido.selectedItem.toString()
+
+
+
+
 
 
 
