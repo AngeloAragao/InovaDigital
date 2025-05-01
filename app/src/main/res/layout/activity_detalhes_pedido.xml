@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Campo de busca -->
+        <EditText
+            android:id="@+id/editIdPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite o ID do Pedido"
+            android:inputType="number"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBuscarPedido"
+            style="@style/btn_big"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Pedido"
+            android:layout_marginBottom="16dp" />
+
+        <!-- TextViews dos detalhes -->
+
+        <TextView
+            android:id="@+id/textNomeCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cliente: "
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textTipoServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Serviço: "
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textDescricaoPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descrição: "
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textQuantidadePedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantidade: "
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textEntregaPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entrega: "
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textValorPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Valor: "
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: "
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botão Editar -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnEditarPedido"
+            style="@style/btn_big"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Editar Pedido" />
+    </LinearLayout>
+
+</ScrollView>
