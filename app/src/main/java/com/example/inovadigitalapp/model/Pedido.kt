@@ -2,6 +2,7 @@ package com.example.inovadigitalapp.model
 
 class Pedido {
 
+    var codigo = ""
     var nomeCliente = ""
     var tipoServico = ""
     var descricaoPedido = ""
@@ -10,7 +11,7 @@ class Pedido {
     var valorPedido = ""
     var statusPedido = ""
     override fun toString(): String {
-        return "Pedido(nomeCliente='$nomeCliente', tipoServico='$tipoServico', descricaoPedido='$descricaoPedido', quantidadePedido='$quantidadePedido', entregaPedido='$entregaPedido', valorPedido='$valorPedido', statusPedido='$statusPedido')"
+        return "Pedido(codigo='$codigo', nomeCliente='$nomeCliente', tipoServico='$tipoServico', descricaoPedido='$descricaoPedido', quantidadePedido='$quantidadePedido', entregaPedido='$entregaPedido', valorPedido='$valorPedido', statusPedido='$statusPedido')"
     }
 
 

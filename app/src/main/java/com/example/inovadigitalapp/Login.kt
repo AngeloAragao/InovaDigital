@@ -44,7 +44,7 @@ class Login : AppCompatActivity() {
                 runOnUiThread {
                     if (response != null && response.contains("email")) {
                         Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
-                        val abrirCadastroPedido = Intent(this, CadastroPedidoActivity::class.java)
+                        val abrirCadastroPedido = Intent(this, DashboardPedidos::class.java)
 
                         startActivity(abrirCadastroPedido)
                     } else {

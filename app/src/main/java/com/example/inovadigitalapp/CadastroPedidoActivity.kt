@@ -1,18 +1,24 @@
 package com.example.inovadigitalapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.inovadigitalapp.http.HttpHelper
 import com.example.inovadigitalapp.model.Pedido
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,11 +30,12 @@ import kotlinx.coroutines.withContext
 
 
 class CadastroPedidoActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_cadastro_pedido)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawer_layout)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -100,6 +107,30 @@ class CadastroPedidoActivity : AppCompatActivity() {
             //val voltarMain = Intent(this, MainActivity::class.java)
             //startActivity(voltarMain)
 
+        }
+
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val menuButton = findViewById<ImageButton>(R.id.button_menu)
+        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+
+        menuButton.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+                R.id.nav_cadastro -> {
+                    Toast.makeText(this, "Você já está no Cadastro", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_relatorio -> {
+                    startActivity(Intent(this, DashboardPedidos::class.java))
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
         }
     }
 }

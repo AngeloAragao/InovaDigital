@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 class StatusAdapter(private var lista: List<Pair<String, Int>>) :
     RecyclerView.Adapter<StatusAdapter.StatusViewHolder>() {
 
+    // Interface para a comunicação do clique no card
+    var onCardClickListener: ((String) -> Unit)? = null
+
     class StatusViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val statusText: TextView = view.findViewById(R.id.textStatus)
         val quantidadeText: TextView = view.findViewById(R.id.textQuantidade)
@@ -27,6 +30,7 @@ class StatusAdapter(private var lista: List<Pair<String, Int>>) :
         holder.statusText.text = status
         holder.quantidadeText.text = "Quantidade: $quantidade"
 
+        // Definir a cor do círculo de status com base no status
         val color = when (status) {
             "Recebido" -> Color.BLUE
             "Em andamento" -> Color.YELLOW
@@ -35,6 +39,12 @@ class StatusAdapter(private var lista: List<Pair<String, Int>>) :
             else -> Color.GRAY
         }
         holder.statusCircle.setBackgroundColor(color)
+
+        // Configurar o clique no card
+        holder.itemView.setOnClickListener {
+            // Disparar o clique e passar o status
+            onCardClickListener?.invoke(status)
+        }
     }
 
     override fun getItemCount() = lista.size
