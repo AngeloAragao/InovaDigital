@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_sort_by_size"
             android:background="?android:selectableItemBackground"
-            android:contentDescription="@string/abrir_menu"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="16dp"/>

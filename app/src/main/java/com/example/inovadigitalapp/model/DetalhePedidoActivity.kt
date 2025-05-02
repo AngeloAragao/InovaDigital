@@ -11,7 +11,7 @@ import com.google.gson.Gson
 import com.example.inovadigitalapp.http.HttpHelper
 import com.example.inovadigitalapp.model.Pedido
 
-class DetalhesPedidoActivity : AppCompatActivity() {
+/*class DetalhePedidoActivity : AppCompatActivity() {
 
     private lateinit var editTextIdPedido: EditText
     private lateinit var buttonBuscarPedido: Button
@@ -26,7 +26,7 @@ class DetalhesPedidoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detalhes_pedido)
+        setContentView(R.layout.activity_detalhe_pedido)
 
         // Inicializando os componentes
         editTextIdPedido = findViewById(R.id.editIdPedido)
@@ -52,6 +52,7 @@ class DetalhesPedidoActivity : AppCompatActivity() {
         }
 
         // Ação ao clicar no botão de editar
+        /*
         buttonEditarPedido.setOnClickListener {
             val idPedido = editTextIdPedido.text.toString().toLongOrNull()
             if (idPedido != null) {
@@ -62,14 +63,14 @@ class DetalhesPedidoActivity : AppCompatActivity() {
                 Toast.makeText(this, "ID do pedido inválido", Toast.LENGTH_SHORT).show()
             }
         }
-    }
+    }*/
 
     // Função para buscar os detalhes do pedido pelo ID
     private fun buscarPedido(idPedido: Long) {
         Thread {
             try {
                 // URL da API
-                val url = "http://192.168.0.8:8080/api/pedido/$idPedido"  // Certifique-se que o IP está correto
+                val url = "http://192.168.15.17:8080/api/pedido/$idPedido"  // Certifique-se que o IP está correto
                 val response = HttpHelper().get(url)
 
                 runOnUiThread {
@@ -97,6 +98,7 @@ class DetalhesPedidoActivity : AppCompatActivity() {
         textQuantidadePedido.text = "Quantidade: ${pedido.quantidadePedido}"
         textEntregaPedido.text = "Entrega: ${pedido.entregaPedido}"
         textValorPedido.text = "Valor: ${pedido.valorPedido}"
-        textStatus.text = "Status: ${pedido.status}"
+        textStatus.text = "Status: ${pedido.statusPedido}"
     }
 }
+*/

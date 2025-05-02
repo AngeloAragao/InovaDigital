@@ -11,7 +11,7 @@ class HttpHelper {
     private val client = OkHttpClient()
 
     fun getPedidos(): String? {
-        val url = "http://192.168.0.18:8080/inovadigital/pedidos"
+        val url = "http://192.168.15.17:8080/inovadigital/pedidos"
 
         val request = Request.Builder()
             .url(url)
@@ -25,7 +25,7 @@ class HttpHelper {
     // Método para pegar pedidos filtrados por status
     fun getPedidosPorStatus(status: String): String? {
         // Modifique a URL de acordo com a API que filtra por status
-        val url = "http://192.168.0.18:8080/inovadigital/pedidos?status=$status"
+        val url = "http://192.168.15.17:8080/inovadigital/pedidos?status=$status"
 
         val request = Request.Builder()
             .url(url)
@@ -38,7 +38,7 @@ class HttpHelper {
 
     // Método para atualizar o status do pedido
     fun atualizarStatusPedido(pedidoId: Long, novoStatus: String): Boolean {
-        val url = "http://192.168.0.18:8080/inovadigital/pedidos/$pedidoId"  // Passando o ID na URL
+        val url = "http://192.168.15.17:8080/inovadigital/pedidos/$pedidoId"  // Passando o ID na URL
 
         // Criar o JSON com o novo status
         val json = JSONObject().apply {
@@ -65,7 +65,7 @@ class HttpHelper {
     fun post (json: String) : String? {
 
         // Definir URL do servidor
-        val URL = "http://192.168.0.18:8080/inovadigital/pedidos"
+        val URL = "http://192.168.15.17:8080/inovadigital/pedidos"
 
         // Definir o cabeçalho
         val headerHttp = "application/json; charset=utf-8".toMediaTypeOrNull()

@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +25,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val buttonAbrirCadastroPedido = findViewById<Button>(R.id.button_abrir_cadastro_pedido)
+        
         val buttonTelaCadastro = findViewById<Button>(R.id.btn_cadastrar)
         val buttonAbrirLogin = findViewById<Button>(R.id.button_login)
 
@@ -38,12 +40,13 @@ class MainActivity : AppCompatActivity() {
             val intentLogin = Intent(this, Login::class.java)
             startActivity(intentLogin)
         }
+        /*val buttonAbrirCadastroPedido = findViewById<Button>(R.id.button_abrir_cadastro_pedido)
 
         buttonAbrirCadastroPedido.setOnClickListener {
             System.out.println("Pedido.toString")
             val abrirCadastroPedido = Intent(this, CadastroPedidoActivity::class.java)
             startActivity(abrirCadastroPedido)
-        }
+        }*/
     }
 
 }

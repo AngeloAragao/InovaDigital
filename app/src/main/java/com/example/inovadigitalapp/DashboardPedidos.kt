@@ -63,7 +63,7 @@ class DashboardPedidos : AppCompatActivity() {
                 R.id.nav_home -> {
                     // ação
                 }
-                R.id.nav_cadastro -> {
+                R.id.button_abrir_cadastro_pedido -> {
                     // ação
                 }
             }
