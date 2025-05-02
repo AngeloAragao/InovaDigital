@@ -52,8 +52,5 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")  // Dependência correta do Gson
     implementation("com.squareup.okhttp3:okhttp:4.10.0") // Ou a versão mais recente
 
-    implementation("com.airbnb.android:lottie:6.1.0")
-
-
 
 }

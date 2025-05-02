@@ -14,13 +14,16 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+
         // Certifique-se de que a view com ID "main" existe no seu layout
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        val buttonAbrirCadastroPedido = findViewById<Button>(R.id.button_abrir_cadastro_pedido)
         val buttonTelaCadastro = findViewById<Button>(R.id.btn_cadastrar)
         val buttonAbrirLogin = findViewById<Button>(R.id.button_login)
 
@@ -35,5 +38,13 @@ class MainActivity : AppCompatActivity() {
             val intentLogin = Intent(this, Login::class.java)
             startActivity(intentLogin)
         }
+
+        buttonAbrirCadastroPedido.setOnClickListener {
+            System.out.println("Pedido.toString")
+            val abrirCadastroPedido = Intent(this, CadastroPedidoActivity::class.java)
+            startActivity(abrirCadastroPedido)
+        }
     }
+
 }
+

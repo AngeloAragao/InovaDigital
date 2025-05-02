@@ -1,7 +1,5 @@
 package com.example.inovadigitalapp.http
 
-
-// Importação necessária
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request

@@ -3,7 +3,6 @@ package com.example.inovadigitalapp
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -30,16 +29,22 @@ import kotlinx.coroutines.withContext
 
 
 class CadastroPedidoActivity : AppCompatActivity() {
+
     @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_cadastro_pedido)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawer_layout)) { v, insets ->
+
+
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
 
 
@@ -50,6 +55,7 @@ class CadastroPedidoActivity : AppCompatActivity() {
         val editTextQuantidadePedido = findViewById<EditText>(R.id.edit_text_quantidade_pedido)
         val editTextEntregaPedido = findViewById<EditText>(R.id.edit_text_entrega_pedido)
         val editTextValorPedido = findViewById<EditText>(R.id.edit_text_valor_pedido)
+
 
         val editTextStatusPedido: Spinner = findViewById(R.id.edit_spinner_status_pedido)
 
@@ -62,6 +68,8 @@ class CadastroPedidoActivity : AppCompatActivity() {
 
         buttonGravar.setOnClickListener {
             // Criar um objeto Pedido
+
+
             val pedido = Pedido()
             pedido.nomeCliente = editTextNomeCliente.text.toString()
             pedido.tipoServico = editTextTipoServico.text.toString()
@@ -69,6 +77,7 @@ class CadastroPedidoActivity : AppCompatActivity() {
             pedido.quantidadePedido = editTextQuantidadePedido.text.toString()
             pedido.entregaPedido = editTextEntregaPedido.text.toString()
             pedido.valorPedido = editTextValorPedido.text.toString()
+
             pedido.statusPedido = editTextStatusPedido.selectedItem.toString()
 
 
@@ -77,7 +86,6 @@ class CadastroPedidoActivity : AppCompatActivity() {
 
 
 
-            // Converter o pedido em texto
             val gson = Gson()
             val pedidoJson = gson.toJson(pedido)
 
@@ -98,6 +106,7 @@ class CadastroPedidoActivity : AppCompatActivity() {
 
                     val abrirDash = Intent(applicationContext, DashboardPedidos::class.java)
                     startActivity(abrirDash)
+
 
                 } catch (e: Exception) {
                     // Se algo der errado, trate o erro
@@ -122,15 +131,15 @@ class CadastroPedidoActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     startActivity(Intent(this, MainActivity::class.java))
                 }
-                R.id.nav_cadastro -> {
+
+                R.id.button_abrir_cadastro_pedido -> {
                     Toast.makeText(this, "Você já está no Cadastro", Toast.LENGTH_SHORT).show()
                 }
+
                 R.id.nav_relatorio -> {
                     startActivity(Intent(this, DashboardPedidos::class.java))
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
-        }
-    }
-}
+        }}}

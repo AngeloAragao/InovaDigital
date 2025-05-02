@@ -157,7 +157,6 @@
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_sort_by_size"
             android:background="?android:selectableItemBackground"
-            android:contentDescription="@string/abrir_menu"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
