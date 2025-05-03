@@ -1,10 +1,11 @@
-package com.example.inovadigitalapp
+package com.example.inovadigitalapp.resources
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.inovadigitalapp.R
 import com.example.inovadigitalapp.model.Pedido
 
 class PedidoAdapter(private var lista: List<Pedido>) : RecyclerView.Adapter<PedidoAdapter.PedidoViewHolder>() {

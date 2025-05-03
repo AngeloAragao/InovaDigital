@@ -3,17 +3,14 @@ package com.example.inovadigitalapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inovadigitalapp.http.HttpHelper
 import com.example.inovadigitalapp.model.Pedido
+import com.example.inovadigitalapp.resources.StatusAdapter
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 
@@ -61,10 +58,13 @@ class DashboardPedidos : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
-                    // ação
+                    startActivity(Intent(this, MainActivity::class.java))
                 }
-                R.id.button_abrir_cadastro_pedido -> {
-                    // ação
+                R.id.nav_cadastro -> {
+                    startActivity(Intent(this, CadastroPedidoActivity::class.java))
+                }
+                R.id.nav_relatorio -> {
+                    startActivity(Intent(this, DashboardPedidos::class.java))
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)

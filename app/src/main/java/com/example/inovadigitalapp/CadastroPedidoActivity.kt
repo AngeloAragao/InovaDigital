@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.inovadigitalapp.http.HttpHelper
 import com.example.inovadigitalapp.model.Pedido
+import com.example.inovadigitalapp.resources.Mascara
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -53,8 +54,11 @@ class CadastroPedidoActivity : AppCompatActivity() {
         val editTextTipoServico = findViewById<EditText>(R.id.edit_text_tipo_servico)
         val editTextDescricaoPedido = findViewById<EditText>(R.id.edit_text_descricao_pedido)
         val editTextQuantidadePedido = findViewById<EditText>(R.id.edit_text_quantidade_pedido)
-        val editTextEntregaPedido = findViewById<EditText>(R.id.edit_text_entrega_pedido)
+        val editTextDataEntrega = findViewById<EditText>(R.id.edit_text_entrega_pedido)
+        val mascara = Mascara()
+        mascara.aplicarMascaraData(editTextDataEntrega)
         val editTextValorPedido = findViewById<EditText>(R.id.edit_text_valor_pedido)
+        mascara.aplicarMascaraMonetaria(editTextValorPedido)
 
 
         val editTextStatusPedido: Spinner = findViewById(R.id.edit_spinner_status_pedido)
@@ -75,8 +79,17 @@ class CadastroPedidoActivity : AppCompatActivity() {
             pedido.tipoServico = editTextTipoServico.text.toString()
             pedido.descricaoPedido = editTextDescricaoPedido.text.toString()
             pedido.quantidadePedido = editTextQuantidadePedido.text.toString()
-            pedido.entregaPedido = editTextEntregaPedido.text.toString()
-            pedido.valorPedido = editTextValorPedido.text.toString()
+            val data = editTextDataEntrega.text.toString()
+            // Resultado: "05/05/2025"
+            pedido.entregaPedido = data
+
+            val valorFormatado = editTextValorPedido.text.toString()
+                .replace("R$", "") // remove símbolo
+                .replace(".", "")  // remove separador de milhar
+                .replace(",", ".") // transforma para ponto decimal, se necessário
+
+            pedido.valorPedido = valorFormatado  // Ex: "1.50" ou "1,50" dependendo do backend
+
 
             pedido.statusPedido = editTextStatusPedido.selectedItem.toString()
 
@@ -132,7 +145,7 @@ class CadastroPedidoActivity : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
                 }
 
-                R.id.button_abrir_cadastro_pedido -> {
+                R.id.nav_cadastro -> {
                     Toast.makeText(this, "Você já está no Cadastro", Toast.LENGTH_SHORT).show()
                 }
 
