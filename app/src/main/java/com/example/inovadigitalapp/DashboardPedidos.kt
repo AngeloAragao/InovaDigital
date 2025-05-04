@@ -66,6 +66,9 @@ class DashboardPedidos : AppCompatActivity() {
                 R.id.nav_relatorio -> {
                     startActivity(Intent(this, DashboardPedidos::class.java))
                 }
+                R.id.nav_relatorio_financeiro -> {
+                    startActivity(Intent(this, DashboardValoresActivity::class.java))
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true

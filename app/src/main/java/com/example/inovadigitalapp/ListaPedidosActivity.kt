@@ -2,12 +2,16 @@ package com.example.inovadigitalapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inovadigitalapp.http.HttpHelper
 import com.example.inovadigitalapp.model.Pedido
 import com.example.inovadigitalapp.resources.PedidoAdapter
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 
 class ListaPedidosActivity : AppCompatActivity() {
@@ -65,5 +69,29 @@ class ListaPedidosActivity : AppCompatActivity() {
                 }
             }
         }.start()
+
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val menuButton = findViewById<ImageButton>(R.id.button_menu)
+        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+
+        menuButton.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+                R.id.nav_cadastro -> {
+                    startActivity(Intent(this, CadastroPedidoActivity::class.java))
+                }
+                R.id.nav_relatorio -> {
+                    startActivity(Intent(this, DashboardPedidos::class.java))
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 }

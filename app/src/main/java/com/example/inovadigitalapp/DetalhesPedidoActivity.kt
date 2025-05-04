@@ -1,16 +1,21 @@
 package com.example.inovadigitalapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.inovadigitalapp.http.HttpHelper
+import com.google.android.material.navigation.NavigationView
 
 class DetalhesPedidoActivity : AppCompatActivity() {
 
@@ -69,5 +74,32 @@ class DetalhesPedidoActivity : AppCompatActivity() {
                 }
             }
         }.start()
+
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val menuButton = findViewById<ImageButton>(R.id.button_menu)
+        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+
+        menuButton.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+                R.id.nav_cadastro -> {
+                    startActivity(Intent(this, CadastroPedidoActivity::class.java))
+                }
+                R.id.nav_relatorio -> {
+                    startActivity(Intent(this, DashboardPedidos::class.java))
+                }
+                R.id.nav_relatorio_financeiro -> {
+                    startActivity(Intent(this, DashboardValoresActivity::class.java))
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 }

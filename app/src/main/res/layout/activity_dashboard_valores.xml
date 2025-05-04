@@ -2,9 +2,10 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetalhesPedidoActivity">
+    tools:context=".DashboardValoresActivity">
 
     <!-- CONTEÚDO PRINCIPAL -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +27,7 @@
             android:id="@+id/titulocadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atualizar Pedido"
+            android:text="DashBoard Valores"
             android:textColor="@color/blue_forte"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -39,7 +40,7 @@
             android:id="@+id/subtitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Acompanhe os pedidos"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/titulocadastro"
@@ -47,37 +48,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" />
 
-        <!-- Nome do Pedido -->
-        <TextView
-            android:id="@+id/textNomeCliente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome do Cliente"
-            android:textSize="18sp"
-            android:textStyle="bold"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCardsFinance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="@+id/subtitulo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Spinner para escolher o status -->
-        <Spinner
-            android:id="@+id/spinnerStatusPedido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/textNomeCliente"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Botão para Atualizar Status -->
-        <Button
-            android:id="@+id/buttonAtualizarStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Atualizar Status"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@id/spinnerStatusPedido"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/subtitulo"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -92,4 +70,3 @@
         app:menu="@menu/menu_lateral" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
-

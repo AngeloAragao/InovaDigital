@@ -16,6 +16,9 @@
         android:theme="@style/Theme.InovaDigitalApp"
         tools:targetApi="31">
         <activity
+            android:name=".DashboardValoresActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetalhesPedidoActivity"
             android:exported="false" />
         <activity
@@ -30,7 +33,6 @@
         <activity
             android:name=".Login"
             android:exported="false" /> <!-- MainActivity como tela inicial -->
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -40,7 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CadastroPedidoActivity"
             android:exported="false"
