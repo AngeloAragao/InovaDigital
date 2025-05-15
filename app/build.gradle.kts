@@ -51,6 +51,7 @@ dependencies {
     // Para JSON
     implementation("com.google.code.gson:gson:2.10.1")  // Dependência correta do Gson
     implementation("com.squareup.okhttp3:okhttp:4.10.0") // Ou a versão mais recente
-
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("com.jakewharton.threetenabp:threetenabp:1.3.1")
 
 }

@@ -48,4 +48,6 @@ class PedidoAdapter(private var lista: List<Pedido>) : RecyclerView.Adapter<Pedi
         lista = novaLista
         notifyDataSetChanged()
     }
+
+
 }

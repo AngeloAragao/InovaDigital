@@ -1,4 +1,5 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
     <solid android:color="#FF0000"/> <!-- Cor vermelha por padrão -->
-    <corners android:radius="200dp" /> <!-- Faz com que o fundo seja circular -->
+    <corners android:radius="100dp"/>  /> <!-- Faz com que o fundo seja circular -->
 </shape>

@@ -2,6 +2,7 @@ package com.example.inovadigitalapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
@@ -25,20 +26,28 @@ class DetalhesPedidoActivity : AppCompatActivity() {
 
         // Recebe o ID do pedido e os detalhes via Intent
         val pedidoId = intent.getStringExtra("codigo")?.toLongOrNull() ?: -1L
+        val codigo = intent.getStringExtra("codigo")
         val nomePedido = intent.getStringExtra("nome_cliente")
+        val entregaPedido = intent.getStringExtra("entrega_pedido")
         val statusPedido = intent.getStringExtra("status_pedido")
 
         // Exibe as informações no layout
+        val textCodigoPedido: TextView = findViewById(R.id.textCodigoPedido)
         val textNomePedido: TextView = findViewById(R.id.textNomeCliente)
+        val textDataEntrega: TextView = findViewById(R.id.textDataEntrega)
         val spinnerStatusPedido: Spinner = findViewById(R.id.spinnerStatusPedido)
 
         textNomePedido.text = nomePedido
+        textCodigoPedido.text = codigo
+        textDataEntrega.text = entregaPedido
 
         // Lista de status possíveis
         val statusList = listOf("Recebido", "Em andamento", "Finalizado", "Atrasado")
         val statusAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, statusList)
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerStatusPedido.adapter = statusAdapter
+
+        Log.d("DetalhesPedidoActivity", "Entrega Pedido: $entregaPedido")
 
         // Configura o Spinner para mostrar o status atual
         val currentStatusIndex = statusList.indexOf(statusPedido)
@@ -54,6 +63,9 @@ class DetalhesPedidoActivity : AppCompatActivity() {
 
             // Atualizar o status no backend
             atualizarStatusPedido(pedidoId, novoStatus)
+
+            val intent = Intent(this, DashboardPedidos::class.java)
+            startActivity(intent)
         }
     }
 

@@ -2,7 +2,12 @@ package com.example.inovadigitalapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -10,17 +15,80 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inovadigitalapp.http.HttpHelper
 import com.example.inovadigitalapp.model.Pedido
+import com.example.inovadigitalapp.resources.PedidoService
 import com.example.inovadigitalapp.resources.StatusAdapter
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
+import com.jakewharton.threetenabp.AndroidThreeTen
+import java.time.LocalDate
 
 class DashboardPedidos : AppCompatActivity() {
+
+    override fun onResume() {
+        super.onResume()
+         // ou outra função que atualize os dados da tela
+    }
 
     private lateinit var adapter: StatusAdapter // Tornamos o adapter acessível na classe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard_pedidos)
+        AndroidThreeTen.init(this)
+
+        // Supondo que você já tenha os pedidos filtrados no seu callback
+        PedidoService.buscarPedidosNotificacao { pedidos ->
+            // Aqui você tem todos os pedidos, agora pode exibi-los
+            pedidos.forEach { pedido ->
+                println("Pedido ${pedido.codigo} - Nome Cliente: ${pedido.nomeCliente} - Data: ${pedido.entregaPedido} - Valor: ${pedido.valorPedido} - Status: ${pedido.statusPedido}")
+            }
+        }
+
+
+        val contadorNotificacoes = findViewById<TextView>(R.id.contadorNotificacoes)
+        val iconeNotificacao = findViewById<ImageView>(R.id.iconeNotificacao)
+
+// Chama o serviço para buscar os pedidos da API
+        PedidoService.buscarPedidosNotificacao { pedidos ->
+            runOnUiThread {
+                val quantidade = pedidos.size // Aqui pega a quantidade de notificações reais da API
+
+                if (quantidade > 0) {
+                    contadorNotificacoes.text = quantidade.toString()
+                    contadorNotificacoes.visibility = View.VISIBLE
+                } else {
+                    contadorNotificacoes.visibility = View.GONE
+                }
+
+
+            }
+
+            iconeNotificacao.setOnClickListener {
+                PedidoService.buscarPedidosNotificacao { pedidos ->
+
+                    if (pedidos.isEmpty()) {
+                        Toast.makeText(this, "Sem notificações", Toast.LENGTH_SHORT).show()
+                        return@buscarPedidosNotificacao
+                    }
+
+                    // Monta a lista de notificações
+                    val mensagens = pedidos.map { pedido ->
+                        "Pedido ${pedido.codigo} - ${pedido.nomeCliente}\n" +
+                                "Data: ${pedido.entregaPedido} - Valor: ${pedido.valorPedido} - Status: ${pedido.statusPedido}"
+                    }.toTypedArray()
+
+                    // Mostra no AlertDialog
+                    AlertDialog.Builder(this)
+                        .setTitle("Notificações")
+                        .setItems(mensagens, null) // lista simples
+                        .setPositiveButton("Fechar", null)
+                        .show()
+                }
+            }
+        }
+
+
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerCards)
         adapter = StatusAdapter(emptyList()) // Cria com lista vazia

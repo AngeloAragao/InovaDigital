@@ -1,9 +1,12 @@
 package com.example.inovadigitalapp.http
 
+import com.example.inovadigitalapp.model.Pedido
+import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 
 class HttpHelper {
@@ -11,7 +14,7 @@ class HttpHelper {
     private val client = OkHttpClient()
 
     fun getPedidos(): String? {
-        val url = "http://192.168.15.17:8080/inovadigital/pedidos"
+        val url = "http://172.20.10.2:8080/inovadigital/pedidos"
 
         val request = Request.Builder()
             .url(url)
@@ -25,7 +28,7 @@ class HttpHelper {
     // Método para pegar pedidos filtrados por status
     fun getPedidosPorStatus(status: String): String? {
         // Modifique a URL de acordo com a API que filtra por status
-        val url = "http://192.168.15.17:8080/inovadigital/pedidos?status=$status"
+        val url = "http://172.20.10.2:8080/inovadigital/pedidos?status=$status"
 
         val request = Request.Builder()
             .url(url)
@@ -38,7 +41,7 @@ class HttpHelper {
 
     // Método para atualizar o status do pedido
     fun atualizarStatusPedido(pedidoId: Long, novoStatus: String): Boolean {
-        val url = "http://192.168.15.17:8080/inovadigital/pedidos/$pedidoId"  // Passando o ID na URL
+        val url = "http://172.20.10.2:8080/inovadigital/pedidos/$pedidoId"  // Passando o ID na URL
 
         // Criar o JSON com o novo status
         val json = JSONObject().apply {
@@ -65,7 +68,7 @@ class HttpHelper {
     fun post (json: String) : String? {
 
         // Definir URL do servidor
-        val URL = "http://192.168.15.17:8080/inovadigital/pedidos"
+        val URL = "http://172.20.10.2:8080/inovadigital/pedidos"
 
         // Definir o cabeçalho
         val headerHttp = "application/json; charset=utf-8".toMediaTypeOrNull()
@@ -85,4 +88,39 @@ class HttpHelper {
         return response.body?.toString()
 
     }
+
+    fun cadastrarUsuario(json: String): String? {
+        val url = "http://172.20.10.2:8080/usuario/cadastrar" // ajuste se o endpoint for diferente
+        val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
+        val client = OkHttpClient()
+
+        val body = json.toRequestBody(mediaType)
+
+        val request = Request.Builder()
+            .url(url)
+            .post(body)
+            .build()
+
+        val response = client.newCall(request).execute()
+        return response.body?.string() // Corrigido: não use `.toString()` aqui
+    }
+
+    fun buscarPedidosNotificacao(): String? {
+        val url = "http://172.20.10.2:8080/inovadigital/pedidos/notificacoes" // ajuste conforme necessário
+
+        val client = OkHttpClient()
+
+        val request = Request.Builder()
+            .url(url)
+            .get()
+            .build()
+
+        val response = client.newCall(request).execute()
+        return response.body?.string()
+    }
+
+
+
 }
+
+

@@ -2,4 +2,11 @@
     <string name="app_name">InovaDigitalApp</string>
     <string name="activity_cadastro_pedido" />
     <string name="title_activity_cadastro_pedido" />
+
+    <string-array name="status_pedido_array">
+        <item>Selecione o status do pedido</item> <!-- HINT -->
+        <item>Pendente</item>
+        <item>Confirmado</item>
+        <item>Entregue</item>
+    </string-array>
 </resources>

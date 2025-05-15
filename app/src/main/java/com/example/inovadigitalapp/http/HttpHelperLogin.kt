@@ -8,7 +8,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 class HttpHelperLogin {
 
     fun postLogin(json: String): String? {
-        val URL = "http://192.168.15.17:8080/usuario/login"
+        val URL = "http://172.20.10.2:8080/usuario/login"
         val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
         val client = OkHttpClient()
         val body = json.toRequestBody(mediaType)

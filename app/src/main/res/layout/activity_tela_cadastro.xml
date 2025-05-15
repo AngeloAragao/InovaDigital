@@ -36,14 +36,25 @@
 
 
     <EditText
-        android:id="@+id/edit_email"
+        android:id="@+id/edit_nome"
         style="@style/edit_Text"
-        android:hint="Email"
+        android:hint="Usuário"
         android:textColorHint="@color/cinza2"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toTopOf="@id/subtitulo"
+        android:layout_marginTop="90dp"/>
+
+    <EditText
+        android:id="@+id/edit_email"
+        style="@style/edit_Text"
+        android:hint="Usuário"
+        android:textColorHint="@color/cinza2"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toTopOf="@id/edit_nome"
         android:layout_marginTop="90dp"/>
 
 

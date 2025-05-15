@@ -39,7 +39,7 @@
     <EditText
         android:id="@+id/edit_email"
         style="@style/edit_Text"
-        android:hint="Email"
+        android:hint="Usuário"
         android:textColorHint="@color/cinza2"
         android:textColor="@color/black"
         android:inputType="textEmailAddress"

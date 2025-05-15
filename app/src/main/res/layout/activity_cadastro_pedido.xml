@@ -13,6 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/button_menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/menu_hamburguer"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="20dp"/>
+
         <TextView
             android:id="@+id/titulo"
             android:layout_width="0dp"
@@ -22,10 +33,10 @@
             android:textStyle="bold"
             android:textColor="@color/blue_forte"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="16dp"/>
 
         <EditText
             android:id="@+id/edit_text_nome_cliente"
@@ -130,6 +141,8 @@
             android:id="@+id/edit_spinner_status_pedido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/edit_spinner"
+            android:entries="@array/status_pedido_array"
             android:layout_marginTop="12dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
@@ -150,14 +163,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="32dp"/>
 
-        <!-- MENU LATERAL -->
-        <ImageButton
-            android:id="@+id/button_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_sort_by_size"
-            android:background="?android:selectableItemBackground"
-            tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Menu lateral -->
@@ -166,6 +172,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#FFFFFF"
+        app:itemBackground="@drawable/drawer_item_background"
+        app:itemIconTint="@color/selector_icon_color"
+        app:itemTextColor="@color/selector_icon_color"
         app:menu="@menu/menu_lateral"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

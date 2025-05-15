@@ -16,6 +16,11 @@ import com.google.gson.Gson
 
 class ListaPedidosActivity : AppCompatActivity() {
 
+    override fun onResume() {
+        super.onResume()
+        // ou outra função que atualize os dados da tela
+    }
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PedidoAdapter
     private val listaPedidos = mutableListOf<Pedido>()
@@ -40,6 +45,7 @@ class ListaPedidosActivity : AppCompatActivity() {
             intent.putExtra("codigo", pedido.codigo)
             intent.putExtra("nome_cliente", pedido.nomeCliente)
             intent.putExtra("status_pedido", pedido.statusPedido)
+            intent.putExtra("entrega_pedido", pedido.entregaPedido)
             startActivity(intent)
         }
 
